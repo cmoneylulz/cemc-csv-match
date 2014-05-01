@@ -5,6 +5,7 @@ namespace controller
     FileController::FileController(const string& fileName)
     {
         this->fileName = fileName;
+        this->validateFileName();
     }
 
     FileController::~FileController()
@@ -16,21 +17,13 @@ namespace controller
     {
         vector<string> fileNameTokens;
         fileNameTokens = split(this->fileName, ".");
-        return true;
-    }
-
-    vector<string> FileController::split(string aString, string delimeter)
-    {
-        unsigned start = 0;
-        unsigned end;
-        vector<string> stringTokens;
-
-        while( (end = aString.find(delimeter, start)) != string::npos )
+        if ( fileNameTokens.size() != 2 )
         {
-            stringTokens.push_back(aString.substr(start, end - start));
-            start = end + delimeter.length();
+            return false;
+        } else if ( fileNameTokens[1] != "csv" ) {
+            return false;
+        } else {
+            return true;
         }
-        stringTokens.push_back(aString.substr(start));
-        return stringTokens;
     }
 };

@@ -8,6 +8,14 @@
 
 using namespace std;
 
+#include "HelperMethods.h"
+
+using namespace utility;
+
+#include "HelperMethods.h"
+
+using namespace utility;
+
 namespace controller
 {
     class FileController
@@ -16,7 +24,6 @@ namespace controller
         string fileName;
 
         bool validateFileName();
-        vector<string> split(string aString, string delimeter);
     public:
         FileController(const string& fileName);
         virtual ~FileController();
