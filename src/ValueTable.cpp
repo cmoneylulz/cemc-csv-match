@@ -14,7 +14,7 @@ namespace model
 
     void ValueTable::addValue(const string& key, vector<string> valueList)
     {
-
+        this->valueMap->insert(pair<string, vector<string> >(key, valueList));
     }
 
 };
