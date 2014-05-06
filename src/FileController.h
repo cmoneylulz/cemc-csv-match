@@ -13,9 +13,9 @@ using namespace std;
 
 using namespace utility;
 
-#include "HelperMethods.h"
+#include "KeyTable.h"
 
-using namespace utility;
+using namespace model;
 
 namespace controller
 {
@@ -29,6 +29,8 @@ namespace controller
     public:
         FileController(const string& fileName);
         virtual ~FileController();
+        
+        void insertKeys(KeyTable* keyTable);
     };
 }
 

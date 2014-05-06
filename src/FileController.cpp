@@ -30,6 +30,21 @@ namespace controller
         }
     }
 
+    void FileController::insertKeys(KeyTable* keyTable)
+    {
+        ifstream input(this->fileName.c_str());
+        if (input.good())
+        {
+            string line;
+            while (getline(input, line))
+            {
+                keyTable->addKey(line);
+            }
+        } else {
+            cout << "File Does Not Exist." << endl;
+        }
+    }
+
     void FileController::readCSV()
     {
         ifstream input(fileName.c_str());
