@@ -4,12 +4,17 @@ namespace model
 {
     ValueTable::ValueTable()
     {
-        
+        this->valueMap = new map<string, vector<string> >();    
     }
 
     ValueTable::~ValueTable()
     {
-        //Empty Deconstructor
+        delete this->valueMap;
+    }
+
+    void ValueTable::addValue(const string& key, vector<string> valueList)
+    {
+
     }
 
 };

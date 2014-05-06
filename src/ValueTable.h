@@ -6,6 +6,7 @@
 #include <string>
 #include <vector>
 #include <fstream>
+#include <map>
 
 using namespace std;
 
@@ -18,10 +19,13 @@ namespace model
     class ValueTable
     {
     private:
+        map<string, vector<string> >* valueMap;
 
     public:
         ValueTable();
         virtual ~ValueTable();
+
+        void addValue(const string& key, vector<string> valueList);
     };
 }
 
