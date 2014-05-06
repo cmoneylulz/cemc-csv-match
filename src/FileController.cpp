@@ -2,13 +2,9 @@
 
 namespace controller
 {
-    FileController::FileController(const string& fileName)
+    FileController::FileController()
     {
-        this->fileName = fileName;
-        if(this->validateFileName())
-        {
-            this->readCSV();
-        }
+        //Default Constructor
     }
 
     FileController::~FileController()
@@ -16,10 +12,10 @@ namespace controller
         //Empty Deconstructor
     }
     
-    bool FileController::validateFileName()
+    bool FileController::validateFileName(const string& fileName)
     {
         vector<string> fileNameTokens;
-        fileNameTokens = split(this->fileName, ".");
+        fileNameTokens = split(fileName, ".");
         if ( fileNameTokens.size() != 2 )
         {
             return false;
@@ -30,33 +26,39 @@ namespace controller
         }
     }
 
-    void FileController::insertKeys(KeyTable* keyTable)
+    void FileController::insertKeys(const string& fileName, KeyTable* keyTable)
     {
-        ifstream input(this->fileName.c_str());
-        if (input.good())
+        if (validateFileName(fileName))
         {
-            string line;
-            while (getline(input, line))
+            ifstream input(fileName.c_str());
+            if (input.good())
             {
-                keyTable->addKey(line);
+                string line;
+                while (getline(input, line))
+                {
+                    keyTable->addKey(line);
+                }
+            } else {
+                cout << "File Does Not Exist." << endl;
             }
         } else {
-            cout << "File Does Not Exist." << endl;
+            cout << "Incorrect File Format." << endl;
         }
     }
-
-    void FileController::readCSV()
+    
+    void FileController::insertValues(const string& fileName, ValueTable* valueTable)
     {
-        ifstream input(fileName.c_str());
-        if (input.good())
+        if (validateFileName(fileName))
         {
-            string line;
-            while (getline(input, line))
+            ifstream input(fileName.c_str());
+            if (input.good())
             {
-                cout << line << endl;
+                cout << "File Exists!" << endl;
+            } else {
+                cout << "File Does Not Exist." << endl;
             }
         } else {
-            cout << "File Does Not Exist." << endl;
+            cout << "Incorrect File Format." << endl;
         }
     }
 };

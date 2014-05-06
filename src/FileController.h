@@ -14,6 +14,7 @@ using namespace std;
 using namespace utility;
 
 #include "KeyTable.h"
+#include "ValueTable.h"
 
 using namespace model;
 
@@ -22,15 +23,13 @@ namespace controller
     class FileController
     {
     private:
-        string fileName;
-
-        bool validateFileName();
-        void readCSV();
+        bool validateFileName(const string& fileName);
     public:
-        FileController(const string& fileName);
+        FileController();
         virtual ~FileController();
         
-        void insertKeys(KeyTable* keyTable);
+        void insertKeys(const string& fileName, KeyTable* keyTable);
+        void insertValues(const string& fileName, ValueTable* valueTable);
     };
 }
 
