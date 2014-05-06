@@ -5,6 +5,7 @@
 #include <stdio.h>
 #include <string>
 #include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -24,6 +25,7 @@ namespace controller
         string fileName;
 
         bool validateFileName();
+        void readCSV();
     public:
         FileController(const string& fileName);
         virtual ~FileController();

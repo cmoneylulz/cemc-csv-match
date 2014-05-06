@@ -5,7 +5,10 @@ namespace controller
     FileController::FileController(const string& fileName)
     {
         this->fileName = fileName;
-        this->validateFileName();
+        if(this->validateFileName())
+        {
+            this->readCSV();
+        }
     }
 
     FileController::~FileController()
@@ -24,6 +27,21 @@ namespace controller
             return false;
         } else {
             return true;
+        }
+    }
+
+    void FileController::readCSV()
+    {
+        ifstream input(fileName.c_str());
+        if (input.good())
+        {
+            string line;
+            while (getline(input, line))
+            {
+                cout << line << endl;
+            }
+        } else {
+            cout << "File Does Not Exist." << endl;
         }
     }
 };
