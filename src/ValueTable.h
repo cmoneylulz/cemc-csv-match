@@ -26,6 +26,7 @@ namespace model
         virtual ~ValueTable();
 
         void addValue(const string& key, vector<string> valueList);
+        void printValues();
     };
 }
 

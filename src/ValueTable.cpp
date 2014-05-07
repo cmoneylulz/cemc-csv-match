@@ -17,4 +17,12 @@ namespace model
         this->valueMap->insert(pair<string, vector<string> >(key, valueList));
     }
 
+    void ValueTable::printValues()
+    {
+        for ( vector<string> i : this->valueMap )
+        {
+            //DO STUFF
+        };
+    }
+
 };
