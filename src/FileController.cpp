@@ -53,7 +53,11 @@ namespace controller
             ifstream input(fileName.c_str());
             if (input.good())
             {
-                cout << "File Exists!" << endl;
+                string line;
+                while (getline(input, line))
+                {
+                    //STRING PROCESSING HERE
+                }
             } else {
                 cout << "File Does Not Exist." << endl;
             }
