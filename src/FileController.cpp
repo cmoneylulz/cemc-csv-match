@@ -56,7 +56,14 @@ namespace controller
                 string line;
                 while (getline(input, line))
                 {
-                    //STRING PROCESSING HERE
+                    stringstream lineStream(line);
+                    string cell;
+                    vector<string> values;
+                    while (getline(lineStream, cell, ','))
+                    {
+                        values.push_back(cell);
+                    }
+                    valueTable->addValue(values[0], values);
                 }
             } else {
                 cout << "File Does Not Exist." << endl;
