@@ -17,6 +17,7 @@ int main( int argc, const char* argv[])
     FileController fileController = FileController();
     fileController.insertKeys("keys.csv", &keyTable);
     fileController.insertValues("values.csv", &valueTable);
+    valueTable.printValues();
     cout << "Done." << endl;
     return 0;
 }

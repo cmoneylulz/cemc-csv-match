@@ -19,7 +19,12 @@ namespace model
 
     void ValueTable::printValues()
     {
-        
+        for (map<string, vector<string> >::const_iterator it = this->valueMap->begin(); it != this->valueMap->end(); ++it)
+        {
+            string key = it->first;
+            vector<string> valueList = it->second;
+            cout << key << endl;
+        }
     }
 
 };
