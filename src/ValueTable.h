@@ -20,7 +20,7 @@ namespace model
     {
     private:
         map<string, vector<string> >* valueMap;
-
+        void printVector(vector<string> aVector);
     public:
         ValueTable();
         virtual ~ValueTable();

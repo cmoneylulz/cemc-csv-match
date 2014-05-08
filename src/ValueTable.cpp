@@ -23,8 +23,19 @@ namespace model
         {
             string key = it->first;
             vector<string> valueList = it->second;
-            cout << key << endl;
+            cout << key << ":" <<endl;
+            this->printVector(valueList);
         }
+    }
+
+    void ValueTable::printVector(vector<string> aVector)
+    {
+        for (vector<string>::const_iterator it = aVector.begin(); it != aVector.end(); ++it)
+        {
+            string value = *it;
+            cout << value << ", ";
+        }
+        cout << endl;
     }
 
 };
