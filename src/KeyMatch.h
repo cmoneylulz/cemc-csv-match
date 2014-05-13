@@ -30,7 +30,7 @@ namespace controller
         KeyTable* keyTable;
         ValueTable* valueTable;
     public:
-        KeyMatch();
+        KeyMatch(const string& keyFileName, const string& valueFileName);
         virtual ~KeyMatch();
     };
 }

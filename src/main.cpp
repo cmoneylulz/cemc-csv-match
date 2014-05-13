@@ -4,6 +4,7 @@
 using namespace std;
 
 #include "FileController.h"
+#include "KeyMatch.h"
 using namespace controller;
 
 #include "KeyTable.h"
@@ -18,6 +19,7 @@ int main( int argc, const char* argv[])
     fileController.insertKeys("keys.csv", &keyTable);
     fileController.insertValues("values.csv", &valueTable);
     valueTable.printValues();
+    KeyMatch keyMatch = KeyMatch("keys.csv", "values.csv");
     cout << "Done." << endl;
     return 0;
 }
