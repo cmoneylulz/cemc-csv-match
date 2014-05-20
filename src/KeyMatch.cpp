@@ -21,6 +21,18 @@ namespace controller
 
     void KeyMatch::matchFiles()
     {
-        cout << "NOT IMPLEMENTED YET" << endl;
+        for (vector<string>::const_iterator it = this->keyTable->getKeys()->begin(); it != this->keyTable->getKeys()->end(); ++it)
+        {
+            string key = *it;
+            for (map<string, vector<string> >::const_iterator it2 = this->valueTable->getValues()->begin(); it2 != this->valueTable->getValues()->end(); ++it2)
+            {
+                string valueKey = it2->first;
+                //TODO: Extract later
+                if (key == valueKey)
+                {
+                    cout << "KEY FOUND" << endl;
+                }
+            }
+        }
     }
 }

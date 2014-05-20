@@ -20,6 +20,7 @@ namespace model
     {
     private:
         map<string, vector<string> >* valueMap;
+
         void printVector(vector<string> aVector);
     public:
         ValueTable();
@@ -27,6 +28,7 @@ namespace model
 
         void addValue(const string& key, vector<string> valueList);
         void printValues();
+        map<string, vector<string> >* getValues();
     };
 }
 

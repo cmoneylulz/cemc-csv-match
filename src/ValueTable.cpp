@@ -38,4 +38,9 @@ namespace model
         cout << endl;
     }
 
+    map<string, vector<string> >* ValueTable::getValues()
+    {
+        return this->valueMap;
+    }
+
 };

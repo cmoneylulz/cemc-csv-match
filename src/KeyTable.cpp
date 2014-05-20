@@ -12,7 +12,7 @@ namespace model
         delete this->keyList;
     }
 
-    vector<string>* KeyTable::getKeyList()
+    vector<string>* KeyTable::getKeys()
     {
         return this->keyList;
     }

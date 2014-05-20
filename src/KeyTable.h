@@ -23,7 +23,7 @@ namespace model
         KeyTable();
         virtual ~KeyTable();
 
-        vector<string>* getKeyList();
+        vector<string>* getKeys();
         void addKey(const string& key);
     };
 }
