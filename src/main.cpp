@@ -19,7 +19,7 @@ int main( int argc, const char* argv[])
     fileController.insertKeys("keys.csv", &keyTable);
     fileController.insertValues("values.csv", &valueTable);
     valueTable.printValues();
-    KeyMatch keyMatch = KeyMatch("keys.csv", "values.csv");
+    KeyMatch keyMatch = KeyMatch(argv[1], argv[2]);
     cout << "Done." << endl;
     return 0;
 }
