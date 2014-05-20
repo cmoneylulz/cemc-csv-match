@@ -13,13 +13,11 @@ using namespace model;
 
 int main( int argc, const char* argv[])
 {
-    KeyTable keyTable = KeyTable();
-    ValueTable valueTable = ValueTable();
-    FileController fileController = FileController();
-    fileController.insertKeys("keys.csv", &keyTable);
-    fileController.insertValues("values.csv", &valueTable);
-    valueTable.printValues();
-    KeyMatch keyMatch = KeyMatch(argv[1], argv[2]);
+    if (!argv[1] == 0 && !argv[2] == 0) {
+        KeyMatch keyMatch = KeyMatch(argv[1], argv[2]);
+    } else {
+        cout << "Invalid or no file names entered as arguments." << endl;
+    }
     cout << "Done." << endl;
     return 0;
 }
