@@ -29,6 +29,8 @@ namespace controller
         FileController* fileController;
         KeyTable* keyTable;
         ValueTable* valueTable;
+        
+        void matchFiles();
     public:
         KeyMatch(const string& keyFileName, const string& valueFileName);
         virtual ~KeyMatch();
