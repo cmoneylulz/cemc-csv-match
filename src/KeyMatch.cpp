@@ -2,14 +2,14 @@
 
 namespace controller
 {
-    KeyMatch::KeyMatch(const string& keyFileName, const string& valueFileName)
+    KeyMatch::KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey)
     {
         this->fileController = new FileController();
-        this->keyTable = new KeyTable();
-        this->valueTable = new ValueTable();
+        this->firstTable = new ValueTable();
+        this->secondTable = new ValueTable();
 
-        this->fileController->insertKeys(keyFileName, this->keyTable);
-        this->fileController->insertValues(valueFileName, this->valueTable);
+        this->fileController->insertValues(firstFile, this->firstTable);
+        this->fileController->insertValues(secondFile, this->secondTable);
         
         this->matchFiles();
     }
@@ -21,18 +21,6 @@ namespace controller
 
     void KeyMatch::matchFiles()
     {
-        for (vector<string>::const_iterator it = this->keyTable->getKeys()->begin(); it != this->keyTable->getKeys()->end(); ++it)
-        {
-            string key = *it;
-            for (map<string, vector<string> >::const_iterator it2 = this->valueTable->getValues()->begin(); it2 != this->valueTable->getValues()->end(); ++it2)
-            {
-                string valueKey = it2->first;
-                //TODO: Extract later
-                if (key == valueKey)
-                {
-                    cout << "KEY FOUND" << endl;
-                }
-            }
-        }
+        //TODO: reimplement
     }
 }

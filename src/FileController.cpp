@@ -25,26 +25,6 @@ namespace controller
             return true;
         }
     }
-
-    void FileController::insertKeys(const string& fileName, KeyTable* keyTable)
-    {
-        if (validateFileName(fileName))
-        {
-            ifstream input(fileName.c_str());
-            if (input.good())
-            {
-                string line;
-                while (getline(input, line))
-                {
-                    keyTable->addKey(line);
-                }
-            } else {
-                cout << "File Does Not Exist." << endl;
-            }
-        } else {
-            cout << "Incorrect File Format." << endl;
-        }
-    }
     
     void FileController::insertValues(const string& fileName, ValueTable* valueTable)
     {

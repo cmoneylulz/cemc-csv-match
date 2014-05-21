@@ -14,7 +14,6 @@ using namespace std;
 
 using namespace utility;
 
-#include "KeyTable.h"
 #include "ValueTable.h"
 
 using namespace model;
@@ -29,7 +28,6 @@ namespace controller
         FileController();
         virtual ~FileController();
         
-        void insertKeys(const string& fileName, KeyTable* keyTable);
         void insertValues(const string& fileName, ValueTable* valueTable);
     };
 }

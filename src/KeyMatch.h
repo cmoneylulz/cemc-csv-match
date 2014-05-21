@@ -14,7 +14,6 @@ using namespace std;
 
 using namespace utility;
 
-#include "KeyTable.h"
 #include "ValueTable.h"
 
 using namespace model;
@@ -27,12 +26,12 @@ namespace controller
     {
     private:
         FileController* fileController;
-        KeyTable* keyTable;
-        ValueTable* valueTable;
+        ValueTable* firstTable;
+        ValueTable* secondTable;
         
         void matchFiles();
     public:
-        KeyMatch(const string& keyFileName, const string& valueFileName);
+        KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey);
         virtual ~KeyMatch();
     };
 }
