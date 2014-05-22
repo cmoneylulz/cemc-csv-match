@@ -8,8 +8,8 @@ namespace controller
         this->firstTable = new ValueTable();
         this->secondTable = new ValueTable();
 
-        this->fileController->insertValues(firstFile, this->firstTable);
-        this->fileController->insertValues(secondFile, this->secondTable);
+        this->fileController->insertValues(firstFile, this->firstTable, firstKey);
+        this->fileController->insertValues(secondFile, this->secondTable, secondKey);
         
         this->matchFiles();
     }

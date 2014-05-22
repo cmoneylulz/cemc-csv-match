@@ -26,7 +26,7 @@ namespace controller
         }
     }
     
-    void FileController::insertValues(const string& fileName, ValueTable* valueTable)
+    void FileController::insertValues(const string& fileName, ValueTable* valueTable, int keyIndex)
     {
         if (validateFileName(fileName))
         {
@@ -43,7 +43,7 @@ namespace controller
                     {
                         values.push_back(cell);
                     }
-                    valueTable->addValue(values[0], values);
+                    valueTable->addValue(values[keyIndex], values);
                 }
             } else {
                 cout << "File Does Not Exist." << endl;

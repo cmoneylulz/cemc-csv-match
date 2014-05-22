@@ -28,7 +28,7 @@ namespace controller
         FileController();
         virtual ~FileController();
         
-        void insertValues(const string& fileName, ValueTable* valueTable);
+        void insertValues(const string& fileName, ValueTable* valueTable, int keyIndex);
     };
 }
 
