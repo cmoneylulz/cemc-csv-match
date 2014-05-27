@@ -31,10 +31,12 @@ namespace controller
         ValueTable* secondTable;
         
         void matchFiles();
+        void join(const vector<string>& vector1, map<string, size_t>& results);
+        void printMatch(map<string, size_t> match);
     public:
         KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey);
         virtual ~KeyMatch();
-        void join(const vector<string>& vector1, vector<string> vector2);
+        
     };
 }
 

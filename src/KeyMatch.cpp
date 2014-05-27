@@ -32,11 +32,11 @@ namespace controller
             if (it2 != this->secondTable->getValues()->end())
             {
                 //MATCH FOUND
-                cout << "FOUND MATCH" << endl;
                 vector<string> values2 = it2->second;
-                vector<string> match = vector<string>();
+                map<string, size_t> match = map<string, size_t>();
                 this->join(values, match);
                 this->join(values2, match);
+                this->printMatch(match);
             }
             else
             {
@@ -45,22 +45,24 @@ namespace controller
         }
     }
 
-    void KeyMatch::join(const vector<string>& vector1, vector<string> vector2)
+    void KeyMatch::join(const vector<string>& vector1, map<string, size_t>& results)
     {
         for (vector<string>::const_iterator it = vector1.begin(); it != vector1.end(); ++it)
         {
             string key = *it; 
-           
-            if (find(vector2.begin(), vector2.end(), key) != vector2.end())
-            {
-                cout << "ITEM EXISTS" << endl;
-            }
-            else
-            {
-                vector2.push_back(key);
-                cout << key << " added." << endl;
-            }
-        }              
+            ++results[key];
+            cout << "count of " << key << ": " <<  results[key] << endl;
+        }
+    }
+
+    void KeyMatch::printMatch(map<string, size_t> match)
+    {
+        for (map<string, size_t>::const_iterator it = match.begin(); it != match.end(); ++it)
+        {
+            string value = it->first;
+            cout << value << ", ";
+        }
+        cout << endl;
     }
 
 }
