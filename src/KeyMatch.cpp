@@ -32,6 +32,7 @@ namespace controller
             {
                 //MATCH FOUND
                 cout << "FOUND MATCH" << endl;
+                this->join(values, values2);
             }
             else
             {
@@ -43,6 +44,36 @@ namespace controller
     vector<string>* KeyMatch::join(const vector<string>& vector1, const vector<string>& vector2)
     {
         vector<string>* newValueList = new vector<string>();
+
+        for (vector<string>::const_iterator it = vector1.begin(); it != vector1.end(); ++it)
+        {
+            string key = *it; 
+           
+            if (find(newValueList->begin(), newValueList->end(), key) != newValueList->end())
+            {
+                cout << "ITEM EXISTS" << endl;
+            }
+            else
+            {
+                newValueList->push_back(key);
+                cout << key << " added." << endl;
+            }
+        }
+
+        for (vector<string>::const_iterator it = vector2.begin(); it != vector2.end(); ++it)
+        {
+            string key = *it; 
+           
+            if (find(newValueList->begin(), newValueList->end(), key) != newValueList->end())
+            {
+                cout << "ITEM EXISTS" << endl;
+            }
+            else
+            {
+                newValueList->push_back(key);
+                cout << key << " added." << endl;
+            }
+        }
         return newValueList;
     }
 
