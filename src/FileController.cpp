@@ -52,4 +52,14 @@ namespace controller
             cout << "Incorrect File Format." << endl;
         }
     }
+
+    void FileController::writeValue(const string& fileName, const string& value)
+    {
+        if (validateFileName(fileName))
+        {
+            ofstream aFile;
+            aFile.open(fileName.c_str(), ios::app);
+            aFile << value << endl;
+        }
+    }
 };

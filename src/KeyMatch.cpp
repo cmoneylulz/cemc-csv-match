@@ -36,7 +36,7 @@ namespace controller
                 map<string, size_t> match = map<string, size_t>();
                 this->join(values, match);
                 this->join(values2, match);
-                this->printMatch(match);
+                this->writeMatch(match);
             }
             else
             {
@@ -63,6 +63,19 @@ namespace controller
             cout << value << ", ";
         }
         cout << endl;
+    }
+
+    void KeyMatch::writeMatch(map<string, size_t> match)
+    {
+        string matchString = "";
+        for (map<string, size_t>::const_iterator it = match.begin(); it != match.end(); ++it)
+        {
+            string value = it->first;
+            matchString += value;
+            matchString += ",";
+        }
+        matchString = matchString.substr(0, matchString.size()-1);
+        this->fileController->writeValue("output.csv", matchString);
     }
 
 }

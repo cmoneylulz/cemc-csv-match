@@ -33,6 +33,7 @@ namespace controller
         void matchFiles();
         void join(const vector<string>& vector1, map<string, size_t>& results);
         void printMatch(map<string, size_t> match);
+        void writeMatch(map<string, size_t> match);
     public:
         KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey);
         virtual ~KeyMatch();
