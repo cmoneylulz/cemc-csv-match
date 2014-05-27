@@ -34,7 +34,7 @@ namespace controller
     public:
         KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey);
         virtual ~KeyMatch();
-        vector<string>* join(const vector<string>& vector1, const vector<string>& vector2);
+        void join(const vector<string>& vector1, vector<string> vector2);
     };
 }
 

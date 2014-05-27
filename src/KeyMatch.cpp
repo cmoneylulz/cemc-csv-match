@@ -27,12 +27,16 @@ namespace controller
             vector<string> values = it->second;
             map<string, vector<string> >::iterator it2 = this->secondTable->getValues()->find(key);
             cout << &it2->first << endl; //DIAGNOSTIC PRINT REMOVE LATER
-            vector<string> values2 = it2->second;
+            
+            cout << "created values2" << endl;
             if (it2 != this->secondTable->getValues()->end())
             {
                 //MATCH FOUND
                 cout << "FOUND MATCH" << endl;
-                this->join(values, values2);
+                vector<string> values2 = it2->second;
+                vector<string> match = vector<string>();
+                this->join(values, match);
+                this->join(values2, match);
             }
             else
             {
@@ -41,40 +45,22 @@ namespace controller
         }
     }
 
-    vector<string>* KeyMatch::join(const vector<string>& vector1, const vector<string>& vector2)
+    void KeyMatch::join(const vector<string>& vector1, vector<string> vector2)
     {
-        vector<string>* newValueList = new vector<string>();
-
         for (vector<string>::const_iterator it = vector1.begin(); it != vector1.end(); ++it)
         {
             string key = *it; 
            
-            if (find(newValueList->begin(), newValueList->end(), key) != newValueList->end())
+            if (find(vector2.begin(), vector2.end(), key) != vector2.end())
             {
                 cout << "ITEM EXISTS" << endl;
             }
             else
             {
-                newValueList->push_back(key);
+                vector2.push_back(key);
                 cout << key << " added." << endl;
             }
-        }
-
-        for (vector<string>::const_iterator it = vector2.begin(); it != vector2.end(); ++it)
-        {
-            string key = *it; 
-           
-            if (find(newValueList->begin(), newValueList->end(), key) != newValueList->end())
-            {
-                cout << "ITEM EXISTS" << endl;
-            }
-            else
-            {
-                newValueList->push_back(key);
-                cout << key << " added." << endl;
-            }
-        }
-        return newValueList;
+        }              
     }
 
 }
