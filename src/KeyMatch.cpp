@@ -26,9 +26,7 @@ namespace controller
             string key = it->first;
             vector<string> values = it->second;
             map<string, vector<string> >::iterator it2 = this->secondTable->getValues()->find(key);
-            cout << &it2->first << endl; //DIAGNOSTIC PRINT REMOVE LATER
             
-            cout << "created values2" << endl;
             if (it2 != this->secondTable->getValues()->end())
             {
                 //MATCH FOUND
@@ -40,7 +38,7 @@ namespace controller
             }
             else
             {
-                cout << "NO MATCH" << endl;
+                //NO MATCH
             }
         }
     }
@@ -51,7 +49,6 @@ namespace controller
         {
             string key = *it; 
             ++results[key];
-            cout << "count of " << key << ": " <<  results[key] << endl;
         }
     }
 
