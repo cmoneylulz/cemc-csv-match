@@ -42,7 +42,7 @@ namespace controller
                     vector<string> values;
                     while (getline(lineStream, cell, ','))
                     {
-                        values.push_back(stripSpaces(cell));
+                        values.push_back(stripAll(cell));
                     }
                     valueTable->addValue(values[keyIndex], values);
                 }

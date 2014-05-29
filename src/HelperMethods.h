@@ -13,6 +13,8 @@ namespace utility
     vector<string> split(string aString, string delimeter);
     string stripQuotes(string aString);
     string stripSpaces(string aString);
+    string stripNewLines(string aString);
+    string stripReturns(string aString);
     string stripAll(string aString);
 }
 

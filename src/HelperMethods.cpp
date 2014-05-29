@@ -21,7 +21,15 @@ namespace utility
     string stripQuotes(string aString)
     {
         vector<string> stringTokens = split(aString, "\"");
-        return stringTokens[0];
+        string returnString = stringTokens[0];
+        if (returnString.empty())
+        {
+            return aString;
+        }
+        else
+        {
+            return stringTokens[0];
+        }
     }
 
     string stripSpaces(string aString)
@@ -31,16 +39,49 @@ namespace utility
         if (returnString.empty())
         {
             return aString;
-        } else
+        }
+        else
         {
             return returnString;
         }
     }
 
+    string stripNewLines(string aString)
+    {
+        vector<string> stringTokens = split(aString, "\n");
+        string returnString = stringTokens[0];
+        if (returnString.empty())
+        {
+            return aString;
+        }
+        else
+        {
+            return returnString;
+        }
+    }
+
+    string stripReturns(string aString)
+    {
+        vector<string> stringTokens = split(aString, "\r");
+        string returnString = stringTokens[0];
+        if (returnString.empty())
+        {
+            return aString;
+        }
+        else
+        {
+            return returnString;
+        }
+    }
+
+
+
     string stripAll(string aString)
     {
         string returnString = stripQuotes(aString);
         returnString = stripSpaces(returnString);
+        returnString = stripNewLines(returnString);
+        returnString = stripReturns(returnString);
         return returnString;
     }
 };
