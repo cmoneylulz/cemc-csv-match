@@ -34,6 +34,7 @@ namespace controller
             if (input.good())
             {
                 string line;
+                getline(input, line); //skip the first line with all the headers TODO ERROR CHECKING
                 while (getline(input, line))
                 {
                     stringstream lineStream(line);
@@ -41,7 +42,7 @@ namespace controller
                     vector<string> values;
                     while (getline(lineStream, cell, ','))
                     {
-                        values.push_back(cell);
+                        values.push_back(stripSpaces(cell));
                     }
                     valueTable->addValue(values[keyIndex], values);
                 }

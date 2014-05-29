@@ -11,6 +11,9 @@ using namespace std;
 namespace utility
 {
     vector<string> split(string aString, string delimeter);
+    string stripQuotes(string aString);
+    string stripSpaces(string aString);
+    string stripAll(string aString);
 }
 
 #endif

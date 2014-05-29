@@ -16,4 +16,31 @@ namespace utility
         stringTokens.push_back(aString.substr(start));
         return stringTokens;
     }
+    
+    //TODO ERROR CHECKING HERE
+    string stripQuotes(string aString)
+    {
+        vector<string> stringTokens = split(aString, "\"");
+        return stringTokens[0];
+    }
+
+    string stripSpaces(string aString)
+    {
+        vector<string> stringTokens = split(aString, "  ");
+        string returnString = stringTokens[0];
+        if (returnString.empty())
+        {
+            return aString;
+        } else
+        {
+            return returnString;
+        }
+    }
+
+    string stripAll(string aString)
+    {
+        string returnString = stripQuotes(aString);
+        returnString = stripSpaces(returnString);
+        return returnString;
+    }
 };
