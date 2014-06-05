@@ -39,6 +39,7 @@ namespace controller
             else
             {
                 //NO MATCH
+                this->writeNoMatch(values);
             }
         }
     }
@@ -73,6 +74,19 @@ namespace controller
         }
         matchString = matchString.substr(0, matchString.size()-1);
         this->fileController->writeValue("output.csv", matchString);
+    }
+
+    void KeyMatch::writeNoMatch(vector<string> row)
+    {
+        string noMatchString = "";
+        for (vector<string>::const_iterator it = row.begin(); it != row.end(); ++it)
+        {
+            string value = *it;
+            noMatchString += value;
+            noMatchString += ",";
+        }
+        noMatchString = noMatchString.substr(0, noMatchString.size()-1);
+        this->fileController->writeValue("notfound.csv", noMatchString);
     }
 
 }
