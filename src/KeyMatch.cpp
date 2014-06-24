@@ -2,6 +2,13 @@
 
 namespace controller
 {
+    /**
+     * Constructor for the KeyMatch Class
+     * @param firstFile the filename of the first csv file
+     * @param secondFile the filename of the second csv file
+     * @param firstKey the index of the first key column to match by
+     * @param secondKey the index of the second key column to match by
+     */
     KeyMatch::KeyMatch(const string& firstFile, const string& secondFile, int firstKey, int secondKey)
     {
         this->fileController = new FileController();
@@ -14,11 +21,18 @@ namespace controller
         this->matchFiles();
     }
 
+    /**
+     * Default Destructor for the KeyMatch Class
+     */
     KeyMatch::~KeyMatch()
     {
         //TODO: add complete destructors
     }
 
+    /**
+     * This method matches CSV files based by comparing key columns and 
+     * records results to the corresponding output csv files
+     */
     void KeyMatch::matchFiles()
     {
         for (map<string, vector<string> >::const_iterator it = this->firstTable->getValues()->begin(); it != this->firstTable->getValues()->end(); ++it)
@@ -44,6 +58,10 @@ namespace controller
         }
     }
 
+    /**
+     * This method is used to join columns from 2 csv files to create a union between two
+     * datasets
+     */
     void KeyMatch::join(const vector<string>& vector1, map<string, size_t>& results)
     {
         for (vector<string>::const_iterator it = vector1.begin(); it != vector1.end(); ++it)
@@ -53,6 +71,9 @@ namespace controller
         }
     }
 
+    /**
+     * This method prints the match to the console and is used only for debug purposes
+     */
     void KeyMatch::printMatch(map<string, size_t> match)
     {
         for (map<string, size_t>::const_iterator it = match.begin(); it != match.end(); ++it)
@@ -63,6 +84,9 @@ namespace controller
         cout << endl;
     }
 
+    /**
+     * This method is used to write the matches to the output csv file
+     */
     void KeyMatch::writeMatch(map<string, size_t> match)
     {
         string matchString = "";
@@ -75,7 +99,10 @@ namespace controller
         matchString = matchString.substr(0, matchString.size()-1);
         this->fileController->writeValue("output.csv", matchString);
     }
-
+    
+    /**
+     * This method is used to write non matches to an output csv file
+     */
     void KeyMatch::writeNoMatch(vector<string> row)
     {
         string noMatchString = "";
