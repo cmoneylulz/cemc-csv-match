@@ -63,5 +63,23 @@ namespace model
     {
         return this->valueMap;
     }
+    
+    /**
+     * Accessor for the list of headers (Column Names) for csv files
+     * @return the list of headrs
+     */
+    vector<string>* ValueTable::getHeaders()
+    {
+        return this->headers;
+    }
+
+    /**
+     * Mutator for the list of headers for csv files
+     * param headers a pointer to the list of headers
+     */
+    void ValueTable::setHeaders(vector<string>* headers)
+    {
+        this->headers = headers;
+    }
 
 };
