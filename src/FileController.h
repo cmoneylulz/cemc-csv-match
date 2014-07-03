@@ -24,7 +24,7 @@ namespace controller
     {
     private:
         bool validateFileName(const string& fileName);
-        vector<string> getHeaders(string input);
+        vector<string>* getHeaders(string input);
     public:
         FileController();
         virtual ~FileController();

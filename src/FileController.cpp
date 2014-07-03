@@ -52,7 +52,7 @@ namespace controller
             {
                 string line;
                 getline(input, line);
-                getHeaders(line);
+                valueTable->setHeaders(getHeaders(line));
                 while (getline(input, line))
                 {
                     stringstream lineStream(line);
@@ -87,14 +87,14 @@ namespace controller
         }
     }
 
-    vector<string> FileController::getHeaders(string input)
+    vector<string>* FileController::getHeaders(string input)
     {
         stringstream lineStream(input);
         string cell;
-        vector<string> values;
+        vector<string>* values = new vector<string>();
         while (getline(lineStream, cell, ','))
         {
-            values.push_back(stripAll(cell));
+            values->push_back(stripAll(cell));
         }
         return values;
     }
