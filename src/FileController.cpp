@@ -51,7 +51,8 @@ namespace controller
             if (input.good())
             {
                 string line;
-                getline(input, line); //skip the first line with all the headers TODO ERROR CHECKING
+                getline(input, line);
+                getHeaders(line);
                 while (getline(input, line))
                 {
                     stringstream lineStream(line);
@@ -84,5 +85,17 @@ namespace controller
             aFile.open(fileName.c_str(), ios::app);
             aFile << value << endl;
         }
+    }
+
+    vector<string> FileController::getHeaders(string input)
+    {
+        stringstream lineStream(input);
+        string cell;
+        vector<string> values;
+        while (getline(lineStream, cell, ','))
+        {
+            values.push_back(stripAll(cell));
+        }
+        return values;
     }
 };
