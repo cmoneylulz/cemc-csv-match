@@ -21,12 +21,12 @@ namespace model
     private:
         map<string, vector<string> >* valueMap;
         vector<string>* headers;
-
-        void printVector(vector<string> aVector);
+        
     public:
         ValueTable();
         virtual ~ValueTable();
-
+        
+        void printVector(vector<string> aVector);
         void addValue(const string& key, vector<string> valueList);
         void printValues();
         map<string, vector<string> >* getValues();

@@ -18,6 +18,7 @@ namespace controller
         this->fileController->insertValues(firstFile, this->firstTable, firstKey);
         this->fileController->insertValues(secondFile, this->secondTable, secondKey);
         
+        this->firstTable->printVector(*this->firstTable->getHeaders());
         this->matchFiles();
     }
 
